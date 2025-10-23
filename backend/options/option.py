@@ -1,5 +1,5 @@
 # Título
-TITLE="IPrueba técnica: Open-Meteo Weather."
+TITLE="Prueba técnica Miguel Morera: Open-Meteo Weather."
 
 # Descripción de producto
 DESCRIPTION = """
