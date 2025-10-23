@@ -1,9 +1,10 @@
-from fastapi import FastAPI
 from options.docs import tags_metadata
 from options.option import TITLE, DESCRIPTION, VERSION
 from routers.meteorologia import meteorologia_data
 from routers.stats import temperatura_stats, lluvia_stats, general_stats
-    
+from fastapi import FastAPI, Depends, Query, HTTPException
+from db.database import engine, get_session
+
 app = FastAPI(
     title=TITLE,
     description=DESCRIPTION, 
@@ -22,6 +23,16 @@ app = FastAPI(
         "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
     }
 )
+
+@app.on_event("startup")
+async def on_startup():
+    """
+    Event that is triggered when the application starts.
+    It creates all the tables in the database if they don't exist.
+    """
+    async with engine.begin() as conn:
+        from db.database import Base
+        await conn.run_sync(Base.metadata.create_all)
 
 # Resto de tus rutas
 app.include_router(meteorologia_data)

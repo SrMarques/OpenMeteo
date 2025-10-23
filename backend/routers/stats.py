@@ -1,4 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-temperatura_stats, lluvia_stats, general_stats = APIRouter()
+temperatura_stats = APIRouter()
+lluvia_stats = APIRouter()  
+general_stats = APIRouter()
 

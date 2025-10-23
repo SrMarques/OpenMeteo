@@ -1,0 +1,10 @@
+fastapi
+pandas
+numpy
+uvicorn
+email-validator
+sqlalchemy
+sqlalchemy[asyncio]
+aiosqlite
+httpx
+greenlet
