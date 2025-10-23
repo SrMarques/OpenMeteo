@@ -1,7 +1,7 @@
 from options.docs import tags_metadata
 from options.option import TITLE, DESCRIPTION, VERSION
-from routers.meteorologia import meteorologia_data
-from routers.stats import temperatura_stats, lluvia_stats, general_stats
+from routers.weather import weather_data
+from routers.stats import temperature_stats, rain_stats, general_stats
 from fastapi import FastAPI, Depends, Query, HTTPException
 from db.database import engine, get_session
 
@@ -35,7 +35,7 @@ async def on_startup():
         await conn.run_sync(Base.metadata.create_all)
 
 # Resto de tus rutas
-app.include_router(meteorologia_data)
-app.include_router(temperatura_stats)
-app.include_router(lluvia_stats)
+app.include_router(weather_data)
+app.include_router(temperature_stats)
+app.include_router(rain_stats)
 app.include_router(general_stats)

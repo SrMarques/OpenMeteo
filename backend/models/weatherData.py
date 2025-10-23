@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, Float, String, DateTime
 from db.database import Base
 
-class MeteorologiaDataDB(Base):
-    __tablename__ = "meteorologia_data"
+class WeatherDataDB(Base):
+    __tablename__ = "weather_data"
 
     id = Column(Integer, primary_key=True, index=True)
     city = Column(String, nullable=False)
