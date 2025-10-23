@@ -6,7 +6,8 @@ DESCRIPTION = """
 
 La tarea consiste en crear una aplicación que lea datos de una API externa (Open-Meteo), los almacene y exponga información sobre estos datos a través de una API REST.
 
-En este caso, vamos a leer datos meteorológicos de la API de Open-Meteo, cuya documentación está disponible en la siguiente URL: https://open-meteo.com/en/docs
+En este caso, vamos a leer datos meteorológicos de la API de Open-Meteo, cuya documentación está disponible en la siguiente URL: 
+  - [open-meteo](https://open-meteo.com/en/docs)
 
 Concretamente, leeremos datos horarios de temperatura y precipitación para una ciudad y rango de fechas especificados, siempre en el pasado. Los endpoints de la API son los siguientes:
 
