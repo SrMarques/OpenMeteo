@@ -107,8 +107,7 @@ async def get_precipitation_stats(
     end_date: str,
     session: AsyncSession = Depends(get_session)
 ) -> Dict:
-   
-    
+       
     # Convertir fechas a datetime
     """
     Estadísticas de precipitación para una ciudad y rango de fechas.
@@ -253,7 +252,7 @@ async def get_general_stats(session: AsyncSession = Depends(get_session)) -> Dic
         temp_min_date = str(temp_min_row["datetime"].date())
         temp_min_val = round(temp_min_row["temperature_2m"], 2)
 
-        # Armar salida
+        # Guardar datos para el return
         output[group_sorted["city"].iloc[0]] = {
             "start_date": start_date,
             "end_date": end_date,

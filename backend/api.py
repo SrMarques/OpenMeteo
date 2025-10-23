@@ -27,11 +27,19 @@ app = FastAPI(
 @app.on_event("startup")
 async def on_startup():
     """
-    Event that is triggered when the application starts.
-    It creates all the tables in the database if they don't exist.
+    Crear las tablas de la base de datos cuando se inicia la aplicación.
+
+    Se utiliza para crear las tablas de la base de datos en la base de datos configurada en la variable de entorno DATABASE_URL.
+
+    No devuelve nada, solo se encarga de crear las tablas de la base de datos.
     """
+
+    # Conectar a la base de datos
     async with engine.begin() as conn:
+        # importar el modelo solo si se necesita
         from db.database import Base
+        
+        # Crear las tablas segun el modelo
         await conn.run_sync(Base.metadata.create_all)
 
 # Resto de tus rutas
